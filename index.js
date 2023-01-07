@@ -1,7 +1,12 @@
 const express = require('express')
 const app = express()
+var morgan = require('morgan')
+
+morgan.token('body', (req, res) => JSON.stringify({name: req.body.name, number: req.body.number}))
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms :body'))
 
 app.use(express.json())
+
 
 let persons = [
     {
@@ -30,19 +35,15 @@ app.get('/', (req, res) => {
   res.send('<h1>Hello World!</h1>')
 })
 
-const generateId = () => {
-  const maxId = persons.length > 0
-    ? Math.max(...persons.map(n => n.id))
-    : 0
-  return maxId + 1
-}
+// const generateId = () => {
+//   const maxId = persons.length > 0
+//     ? Math.max(...persons.map(n => n.id))
+//     : 0
+//   return maxId + 1
+// }
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
-}
-
-const handleErrors = (body, persons) => {
-  
 }
 
 app.post('/api/persons', (request, response) => {
