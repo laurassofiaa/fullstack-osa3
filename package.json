@@ -7,10 +7,9 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-
     "build:ui": "rm -rf build && cd ../fullstack/osa2/puhelinluettelo/ && npm run build && cp -r build ../../../fullstack-osa3",
     "deploy": "flyctl deploy",
-    "deploy:full": "npm run build:ui && npm run deploy",    
+    "deploy:full": "npm run build:ui && npm run deploy",
     "logs:prod": "flyctl logs"
   },
   "repository": {
@@ -26,6 +25,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "mongoose": "^6.8.3",
     "morgan": "^1.10.0"
   },
   "devDependencies": {
