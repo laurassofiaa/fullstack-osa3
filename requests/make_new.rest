@@ -1,7 +1,7 @@
-POST https://patient-darkness-9689.fly.dev/api/persons
+PUT http://localhost:3001/api/persons
 Content-Type: application/json
 
 {
     "name": "Pekka Poistettava",
-    "number": "333-333-3333"
+    "number": "333-333-3332"
 }
